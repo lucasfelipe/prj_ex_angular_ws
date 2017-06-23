@@ -19,6 +19,7 @@ public class Servidor {
 	public static HttpServer inicializaServidor() {
 		URI uri = URI.create("http://localhost:8080/");
 		ResourceConfig config = new ResourceConfig().packages("br.com.loja");
+		config.register(new CORSFilter());
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, config);
 		return server;
 	}

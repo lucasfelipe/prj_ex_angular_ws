@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.google.gson.Gson;
+
 @Entity
 public class Produto {
 
@@ -47,5 +49,9 @@ public class Produto {
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	public String toJSON() {
+		return new Gson().toJson(this);
 	}
 }
